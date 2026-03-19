@@ -13,7 +13,7 @@ If you are primarily interested in checking how the IPTW methods are applied rat
 
 ## Data access
 
-Data from the 1970 British Cohort Study can be obtained from the [UK Data Service](https://ukdataservice.ac.uk/) under a standard End User Licence Agreement (Study Number 200001).
+Data from the 1970 British Cohort Study (BCS70) can be obtained from the [UK Data Service](https://ukdataservice.ac.uk/) under a standard End User Licence Agreement (Study Number 200001).
 
 The project expects the raw `.dta` files to be placed in sweep-specific subfolders inside `data/` (e.g., `data/0y/`, `data/5y/`, `data/10y/`, etc.). The [CLS GitHub documentation](https://cls-data.github.io/docs/bcs70-sweep_folders.html) describes this folder structure and provides code to download and organise the files automatically. If your files are organised differently, you will need to adjust the paths in `scripts/1-bcs70-data-cleaning.R`.
 
