@@ -81,7 +81,7 @@ methods_models <- dplyr::union(methods_weights, c("adjusted", "unadjusted")) # W
 n_core <- 6 # Specify the number of cores to use
 # Requires a machine with at least 6 cores and sufficient RAM.
 # Can also use:
-# n_core <- parallel::detectCores() - 1
+# n_core <- parallel::detectCores() - 2
 # If n_core != 6, the analysis may return slightly different results due to the analysis being run in parallel
 # with a different number of workers (affecting the random seed streams).
 
