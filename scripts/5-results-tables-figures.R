@@ -263,7 +263,7 @@ n_sample <- scales::number(nrow(bcs70_eligible_descriptive), big.mark = ",")
 
 footnote_tex <- glue(
   "Descriptive statistics for the eligible sample (N = {n_sample}). ",
-  "N = count; SD = standard deviation."
+  "N -- count; SD -- standard deviation."
 )
 
 tbl_tex <- desc_data_latex |>
