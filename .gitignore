@@ -1,0 +1,29 @@
+# Restricted data — keep folder structure, ignore contents
+data/**/*
+!data/**/
+!data/**/.gitkeep
+
+# Generated results — keep folder structure, ignore contents
+results/**/*
+!results/**/
+!results/**/.gitkeep
+
+# R session files
+.Rproj.user/
+.Rhistory
+.RData
+.Rdata
+.DS_Store
+
+# renv library (restored from lockfile)
+renv/library/
+renv/staging/
+renv/sandbox/
+
+# IDE-generated render artefacts
+README_files/
+
+# Not shared publicly
+scripts/1b-append-raw-for-verifier.R
+scripts/6-manuscript-tables.R
+R/share-utils.R
