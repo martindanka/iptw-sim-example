@@ -30,10 +30,6 @@ library(cobalt) # Balance plots
 library(future)
 library(furrr)
 
-# Tables and figures
-library(flextable)
-library(officer)
-
 # Set up ----------------------------------------------------------------------------------------------------------
 
 # Find the script if you have not set the working directory
