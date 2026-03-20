@@ -131,8 +131,8 @@ bcs70_descriptive_clean <- bcs70_descriptive_selected |>
     alcohol_w6 = fct_recode(
       alcohol_w6,
       "Rarely/Never" = "rarely_never",
-      "Once/Month" = "once",
       "2-3 Times/Month" = "2-3times",
+      "Once/Week" = "once",
       "Most Days" = "most_days"
     ),
     across(
