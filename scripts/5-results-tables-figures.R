@@ -111,7 +111,7 @@ bcs70_descriptive_clean <- bcs70_descriptive_selected |>
     ),
     occupation_w6 = fct_recode(
       occupation_w6,
-      "Partly Skilled/Unskilled" = "other",
+      "Partly Skilled/Unskilled/Manual" = "other",
       "Skilled Non-Manual" = "skilled-nonmanual",
       "Managerial/Technical" = "managerial-technical",
       "Professional" = "professional"
@@ -390,10 +390,10 @@ pretty_names <- c(
   # alcohol
   "alcohol_w6_rarely_never" =
     paste0(variable_labels$alcohol_w6, ": Rarely / never"),
-  "alcohol_w6_once" =
-    paste0(variable_labels$alcohol_w6, ": Once/month"),
   "alcohol_w6_2-3times" =
     paste0(variable_labels$alcohol_w6, ": 2-3x/month"),
+  "alcohol_w6_once" =
+    paste0(variable_labels$alcohol_w6, ": Once/week"),
   "alcohol_w6_most_days" =
     paste0(variable_labels$alcohol_w6, ": Most days"),
 
