@@ -555,7 +555,7 @@ wave6_age29_bmi <- wave6_age29_bmi |>
       bmi_cat,
       levels = c(0:3),
       labels = c("underweight", "normal", "overweight", "obese"),
-      ordered = T
+      ordered = TRUE
     )
   )
 
@@ -582,7 +582,7 @@ convert_to_weekly <- function(inc, period, days) {
     period == 3 ~ inc / 4, # Four weeks
     period == 4 ~ (inc * 12) * (7 / days), # Monthly: convert to annual first, then convert to weekly
     period == 5 ~ inc * (7 / days), # Annual
-    TRUE ~ NA_real_ # Other period will be set to missing
+    .default = NA # Other period will be set to missing
   )
 }
 
@@ -642,7 +642,7 @@ wave6_age29_healthbeh <- wave6_age29_sociodem |>
       exercise_total,
       levels = c(0:2),
       labels = c("<1", "1-3times", "4+"),
-      ordered = T
+      ordered = TRUE
     ),
     smoking_status = case_when(
       smoking == 1 ~ "neversmoker",
@@ -661,7 +661,7 @@ wave6_age29_healthbeh <- wave6_age29_sociodem |>
       alcohol,
       levels = c(0:3),
       labels = c("rarely_never", "once", "2-3times", "most_days"),
-      ordered = T
+      ordered = TRUE
     )
   )
 
@@ -1062,7 +1062,7 @@ bcs70_eligible_analysis <- bcs70_eligible_descriptive |>
   mutate(
     parental_class_w1 = case_when(
       parental_class_w1 == "other" ~ "manual/unskilled/partly_skilled",
-      TRUE ~ parental_class_w1
+      .default = parental_class_w1
     ),
     parental_class_w1 = forcats::as_factor(parental_class_w1)
   )
