@@ -651,7 +651,7 @@ wave6_age29_healthbeh <- wave6_age29_sociodem |>
       .default = NA
     ),
     alcohol = case_when(
-      alcohol %in% c(4, 7) ~ 0,
+      alcohol %in% c(4:7) ~ 0,
       alcohol == 3 ~ 1,
       alcohol == 2 ~ 2,
       alcohol == 1 ~ 3,
@@ -857,8 +857,8 @@ response_dataset_select <- response_dataset |>
       cob == 1 ~ "England",
       cob == 2 ~ "Wales",
       cob == 3 ~ "Scotland",
-      cob %in% c(4:6) ~ "Other",
-      .default = NA
+      cob %in% c(4:6) ~ "Other", 
+      .default = NA # value 7 stands for GB (unspecified) but there are no observed cases with this value in the data.
     )
   ) |>
   dplyr::select(-cob, -multipno, -twincode) |>
