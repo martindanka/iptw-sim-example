@@ -290,7 +290,7 @@ tbl_tex <- desc_data_latex |>
   add_indent(indent_rows_latex) |>
   column_spec(2:3, latex_column_spec = "c") |>
   row_spec(0, bold = TRUE) |>
-  footnote(
+  kableExtra::footnote(
     general = footnote_tex,
     footnote_as_chunk = TRUE,
     escape = FALSE,
