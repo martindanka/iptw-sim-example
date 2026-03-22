@@ -135,6 +135,10 @@ bcs70_descriptive_clean <- bcs70_descriptive_selected |>
       "Once/Week" = "once",
       "Most Days" = "most_days"
     ),
+    ethnicity_w6 = fct_collapse(ethnicity_w6,
+      "White" = "white",
+      "Non-White" = c("southasian", "black", "mixed", "other")
+    ),
     across(
       c(drug_use_w6, starts_with("illness")),
       ~ fct_recode(.x, "No" = "no", "Yes" = "yes")
@@ -158,6 +162,7 @@ variable_labels <- list(
   malaise_tot_w4 = "Malaise Total Score (Age 16)",
   bmi_w6 = "BMI (Age 30)",
   partnership_w6 = "Partnership Status (Age 30)",
+  ethnicity_w6 = "Ethnicity",
   occupation_w6 = "Occupation (Age 30)",
   exercise_total_w6 = "Exercise Frequency (Age 30)",
   smoking_status_w6 = "Smoking Status (Age 30)",
@@ -174,6 +179,7 @@ var_groups <- list(
   "Demographics" = c(
     "sex",
     "country",
+    "ethnicity_w6",
     "partnership_w6"
   ),
   "Socioeconomic Variables" = c(
@@ -228,6 +234,7 @@ desc_for_latex <- descriptive_tbl |>
   collapse_one_binary("Sex", 1L, "Female") |>
   collapse_one_binary("Overcrowding (Age 5)", 2L, "Overcrowded (Age 5)") |>
   collapse_one_binary("Housing Tenure (Age 10)", 2L, "Housing tenure: Owned (Age 10)") |>
+  collapse_one_binary("Ethnicity", 2L, "Ethnicity: Non-White") |>
   collapse_one_binary("Partnership Status (Age 30)", 1L, "Married/Partnered (Age 30)") |>
   collapse_one_binary("Smoking During Pregnancy", 2L, "Smoking During Pregnancy") |>
   collapse_one_binary("Substance Use in Past Year (Age 30)", 2L, "Substance Use in Past Year (Age 30)") |>
@@ -285,7 +292,7 @@ tbl_tex <- desc_data_latex |>
     full_width = FALSE,
     latex_options = "repeat_header",
     font_size = 8,
-    position = "left"
+    position = "center"
   ) |>
   add_indent(indent_rows_latex) |>
   column_spec(2:3, latex_column_spec = "c") |>
@@ -403,7 +410,7 @@ pretty_names <- c(
 
   # ethnicity (manual label)
   "ethnicity_w6_non-white" =
-    "Ethnicity: Ethnic minority background",
+    "Ethnicity: Non-White",
 
   # illness
   "illness_w6_yes" =
